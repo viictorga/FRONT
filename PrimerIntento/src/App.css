@@ -1,38 +1,33 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 1980px;
+  margin:  auto;
+  
 }
-.Visor{
-color: greenyellow;
-
-
+.fila-principal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+ 
 }
 
-
+/* NUMEROS IZQUIERDA */
 .numeros {
- display:flex;
- justify-content: flex-start;
-}
-.opera{
-  display:flex;;
+  display: flex;
   flex-direction: column;
-
-}
-.igualycero{
   
-
-
 }
-.mainContainer{
-  display:flex;
+
+
+/* OPERACIONES DERECHA */
+.operaciones {
+  display: flex;
   flex-direction: column;
-  justify-content:center;
-  align-items:center;
-  
-  color: rgba(101, 199, 167, 0.703);
-  background-color: antiquewhite;
-  width: 100%; 
-  height: 100%;
+ 
+}
+
+/* ABAJO */
+.igualycero {
+  display: flex;
+  justify-content: center;
+ 
 }

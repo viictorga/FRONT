@@ -27,24 +27,35 @@ const resetCalc = () =>{
    setOperacion(null);
     graficar("");
     setResultado(false);
-    graficar(textoOperacion);
+    
   
 }
 
-const handleClick = (miString: string) =>{
-  if(!numero1 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "="){
-    setNum1(miString)
-    graficar(miString)
+const handleClick = (miString: string) => {
+
+  if (resultado) {
+    setNum1(miString);
+    setNum2(null);
+    setOperacion(null);
+    graficar(miString);
+    setResultado(false);
+    return;
   }
-  else if(!operacion && (miString === "+" || miString === "-" || miString == "*" || miString == "/" || miString == "=")){
-    setOperacion((miString))
-    graficar(textoOperacion + miString)
+
+  if (!numero1 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
+    setNum1(miString);
+    graficar(miString);
   }
-  else if(!numero2 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "="){
-    setNum2(miString)
-    graficar(textoOperacion + miString)
+  else if (!operacion && (miString === "+" || miString === "-" || miString === "*" || miString === "/")) {
+    setOperacion(miString);
+    graficar(textoOperacion + miString);
   }
-}
+  else if (!numero2 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
+    setNum2(miString);
+    graficar(textoOperacion + miString);
+  }
+};
+
 const handleIgual = (miIgual: string) =>{
   if(miIgual === "="){
     if(numero1 && operacion && numero2){
@@ -71,15 +82,15 @@ const handleIgual = (miIgual: string) =>{
 }
 
   return (
-    <div className='Visor'> 
-      <div> 
+    <div > 
+      <div className='Visor'> 
         <h1> {textoOperacion}</h1>
       
       </div> 
       {/* este es el visor */}
-      <div > 
-        <div> 
-            <div >
+      <div> 
+        <div className= "fila-principal"> 
+            <div className='numeros'>
               <div>
                 <button onClick={() =>{
               handleClick("1");
