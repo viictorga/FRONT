@@ -1,33 +1,45 @@
 #root {
   max-width: 1980px;
   margin:  auto;
+  background-color: rgb(154, 210, 255);
+}
+.divPrincipal{
+  
+}
+.Visor{
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  background-color: rgb(29, 82, 45);
+}
+ button {
+  height: 35px;
+  width: 40px;
   
 }
 .fila-principal {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+
  
 }
-
-/* NUMEROS IZQUIERDA */
 .numeros {
   display: flex;
   flex-direction: column;
   
 }
-
-
-/* OPERACIONES DERECHA */
 .operaciones {
   display: flex;
   flex-direction: column;
- 
-}
+  height: 105px;
+  /* esto es a mano y da asco, pero es 35 que mide cada boton por tres botones y delimitas el tamaño del div ahi */
 
-/* ABAJO */
+}
 .igualycero {
   display: flex;
-  justify-content: center;
- 
+  justify-content: flex-end;
+}
+.igual{
+  width: 80px;
+  
 }

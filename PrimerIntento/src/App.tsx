@@ -1,7 +1,5 @@
-
 import { useState } from 'react'
 import './App.css'
-
 
 const App = () => {
 
@@ -13,7 +11,6 @@ const App = () => {
 
 
  
-  const name = "Paqui"
   /*
 
   estaddo operacion apra mostrar [textoOperacion, set]
@@ -41,8 +38,9 @@ const handleClick = (miString: string) => {
     setResultado(false);
     return;
   }
+ 
 
-  if (!numero1 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
+  else if (!numero1 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
     setNum1(miString);
     graficar(miString);
   }
@@ -82,7 +80,7 @@ const handleIgual = (miIgual: string) =>{
 }
 
   return (
-    <div > 
+    <div className="divPrincipal"> 
       <div className='Visor'> 
         <h1> {textoOperacion}</h1>
       
@@ -91,7 +89,7 @@ const handleIgual = (miIgual: string) =>{
       <div> 
         <div className= "fila-principal"> 
             <div className='numeros'>
-              <div>
+              <div className = "cadafila">
                 <button onClick={() =>{
               handleClick("1");
             }}> 1</button>
@@ -102,7 +100,7 @@ const handleIgual = (miIgual: string) =>{
               handleClick("3");
             }}> 3</button>
               </div>
-              <div>
+             <div className = "cadafila">
                 <button onClick={() =>{
               handleClick("4");
             }}> 4</button>
@@ -113,7 +111,7 @@ const handleIgual = (miIgual: string) =>{
               handleClick("6");
             }}> 6</button>
               </div>
-            <div>
+            <div className = "cadafila">
             <button onClick={() =>{
               handleClick("7");
             }}> 7</button>
@@ -155,7 +153,7 @@ const handleIgual = (miIgual: string) =>{
             }}> RESET</button>
             <button onClick={() =>{
               handleClick("0");
-            }}> 0</button><button onClick={() =>{
+            }}> 0</button><button className = "igual"onClick={() =>{
               handleIgual("=");
             }}> =</button>
 
