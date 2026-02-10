@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const App = () => {
@@ -9,24 +9,57 @@ const App = () => {
   let [operacion, setOperacion] = useState<string | null>(null);
   let [resultado, setResultado] = useState(false);
 
-
- 
-  /*
-
-  estaddo operacion apra mostrar [textoOperacion, set]
-  otro estado para num1 [num1, setNum1]
-  otro estado para num2, lo mismo que num1
-  */
 const resetCalc = () =>{
   
     setNum1(null);
    setNum2(null);
    setOperacion(null);
-    graficar("");
+     
     setResultado(false);
     
   
 }
+
+useEffect(() =>{
+  if(resultado){
+    return;
+  }
+
+  let miString = "";
+  if(numero1)miString = miString + numero1;
+  if(operacion) miString = miString + operacion;
+  if(numero2) miString = miString + numero2;
+  
+  graficar(miString)
+  
+}, [numero1, numero2, operacion, resultado])
+
+useEffect(()=>{
+  if(!resultado) return;
+  if(!numero1 || !operacion || !numero2) return;
+
+  const numero11 = Number(numero1)
+  const numero22 = Number(numero2)
+  if(operacion === "+"){
+    graficar(String(numero11+numero22))
+    setResultado(true);
+  }
+  if(operacion === "-"){
+    graficar(String(numero11-numero22))
+    setResultado(true);
+  }
+  if(operacion === "*"){
+    graficar(String(numero11*numero22))
+    setResultado(true);
+  }
+  if(operacion === "/"){
+    graficar(String(numero11/numero22))
+    setResultado(true);
+  }
+
+  
+
+}, [resultado])
 
 const handleClick = (miString: string) => {
 
@@ -42,40 +75,21 @@ const handleClick = (miString: string) => {
 
   else if (!numero1 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
     setNum1(miString);
-    graficar(miString);
+    
   }
   else if (!operacion && (miString === "+" || miString === "-" || miString === "*" || miString === "/")) {
     setOperacion(miString);
-    graficar(textoOperacion + miString);
+    
   }
   else if (!numero2 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
     setNum2(miString);
-    graficar(textoOperacion + miString);
+    
   }
 };
 
 const handleIgual = (miIgual: string) =>{
   if(miIgual === "="){
-    if(numero1 && operacion && numero2){
-      const numero11 = Number(numero1)
-      const numero22 = Number(numero2)
-      if(operacion === "+"){
-        graficar(String(numero11+numero22))
-        setResultado(true);
-      }
-      if(operacion === "-"){
-        graficar(String(numero11-numero22))
-        setResultado(true);
-      }
-      if(operacion === "*"){
-        graficar(String(numero11*numero22))
-        setResultado(true);
-      }
-      if(operacion === "/"){
-        graficar(String(numero11/numero22))
-        setResultado(true);
-      }
-    }
+    setResultado(true)
   }
 }
 
