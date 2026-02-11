@@ -3,7 +3,7 @@ import './App.css'
 
 const App = () => {
 
-  let [textoOperacion,graficar] = useState<String>("")
+  let [textoOperacion, graficar] = useState<String>("")
   let [numero1, setNum1] = useState<string | null>(null);
   let [numero2, setNum2] = useState<string | null>(null);
   let [operacion, setOperacion] = useState<string | null>(null);
@@ -42,19 +42,19 @@ useEffect(()=>{
   const numero22 = Number(numero2)
   if(operacion === "+"){
     graficar(String(numero11+numero22))
-    setResultado(true);
+    
   }
   if(operacion === "-"){
     graficar(String(numero11-numero22))
-    setResultado(true);
+    
   }
   if(operacion === "*"){
     graficar(String(numero11*numero22))
-    setResultado(true);
+    
   }
   if(operacion === "/"){
     graficar(String(numero11/numero22))
-    setResultado(true);
+    
   }
 
   
@@ -75,7 +75,6 @@ const handleClick = (miString: string) => {
 
   else if (!numero1 && miString !== "+" && miString !== "-" && miString !== "*" && miString !== "/" && miString !== "=") {
     setNum1(miString);
-    
   }
   else if (!operacion && (miString === "+" || miString === "-" || miString === "*" || miString === "/")) {
     setOperacion(miString);
@@ -96,7 +95,7 @@ const handleIgual = (miIgual: string) =>{
   return (
     <div className="divPrincipal"> 
       <div className='Visor'> 
-        <h1> {textoOperacion}</h1>
+        <h1>{textoOperacion}</h1>
       
       </div> 
       {/* este es el visor */}
@@ -185,4 +184,4 @@ const handleIgual = (miIgual: string) =>{
   )
 }
 
-export default App
+export default App;

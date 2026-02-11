@@ -1,0 +1,22 @@
+.characterContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border :solid  1px;
+}
+
+.characterContainer img{
+  border-radius: 6px;
+  width: 300px;
+  box-shadow: 2px 2px 2px #FABADA;
+
+}
+.characterDataContanier{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 8px 8px 8px 0px;
+}
