@@ -63,7 +63,7 @@ useEffect(()=>{
 
 const handleClick = (miString: string) => {
 
-  if (resultado) {
+  if (resultado){
     setNum1(miString);
     setNum2(null);
     setOperacion(null);
