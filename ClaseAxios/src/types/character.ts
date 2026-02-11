@@ -5,10 +5,19 @@ export type Character = {
   species: string;
   type: string;
   gender: "Female" | "Male" | "Genderless" | "unknown";
-  origin: {name:string; url:string;}
-  location: string;
+
+  origin: {
+    name: string;
+    url: string;
+  };
+
+  location: {
+    name: string;
+    url: string;
+  };
+
   image: string;
-  episode: string[]; // array de URLs
+  episode: string[];
   url: string;
-  created: string; // ISO date string
+  created: string; // fecha ISO
 };

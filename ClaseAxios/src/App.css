@@ -5,3 +5,10 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
+.mainContainer > button{
+  width: 60px;
+  height:30px;
+  gap: 6px; 
+  margin: 10px;
+  background-color: #FABADA;
+}
