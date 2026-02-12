@@ -5,18 +5,31 @@
     align-items: center;
     justify-content: center;
     padding: 6px;
-    border :solid  1px;
+   border :solid  3px;
+   border-color: #FABADA;
     flex-wrap: wrap;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .characterContainer img{
+    
   border-radius: 6px;
   width: 300px;
-  box-shadow: 2px 2px 2px #FABADA;
+  box-shadow: 4px 4px 9px #00ff88;
+  margin:10px;
 
+}
+.Nombre{
+  color: #00ff88;
+  text-shadow: 0 0 7px #00ff88;
+  font-size: 25px;
+}
+.characterContainer p{
+  
 }
 .characterDataContanier{
     display: flex;
+    
     flex-direction: column;
     gap: 15px;
     padding: 8px 8px 8px 0px;

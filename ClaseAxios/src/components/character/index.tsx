@@ -21,16 +21,16 @@ export const CharacterById = (params: {id?: string, characterin?: Character}) =>
     return (
         <>
             {character ? <div className="characterContainer">
-
+              
                 <img src={character?.image}></img>
                 <div className="characterDataContanier">
-                    <p> Nombre: {character?.name}</p>
+                    <h1 className="Nombre">{character?.name}</h1>
                     <p> Origen: {character?.origin.name}</p>
                     <p> Estado: {character?.status}</p>
                     <p> Especie: {character?.species}</p>
                     <p> Genero: {character?.gender}</p>
                 </div>
-
+            
             </div> : <p>Loading...</p>}
         </>
     )

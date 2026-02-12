@@ -69,14 +69,16 @@ const  App = () => {
 
  return (
     <div className='mainContainer'>
+      <div className='buscador'>
+        <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+      
+        <label> Especie: </label> <input type="text" value={inputEspecie} onChange={(e) => setInputEspecie(e.target.value)}/>
+      
+        <label> Estado: </label> <input type="text" value={inputEstado} onChange={(e) => setInputEstado(e.target.value)}/>
 
-     <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
-     
-      <label> Especie: </label> <input type="text" value={inputEspecie} onChange={(e) => setInputEspecie(e.target.value)}/>
-     
-      <label> Estado: </label> <input type="text" value={inputEstado} onChange={(e) => setInputEstado(e.target.value)}/>
+        <label> Genero: </label> <input type="text" value={inputGenero} onChange={(e) => setInputGenero(e.target.value)}/>
 
-      <label> Genero: </label> <input type="text" value={inputGenero} onChange={(e) => setInputGenero(e.target.value)}/>
+      </div>
       <button onClick={() => setSearch(inputName + inputEspecie + inputEstado + inputGenero)}> Buscar </button>
 
       <div className='characterContainer'>
