@@ -4,7 +4,7 @@ import { api } from './api/api'
 import { CharacterById } from './components/character'
 import type { Character } from './types'
 
-
+import { CharcacterDetalladito } from './components/characterDetallado'
 
 
 
@@ -16,6 +16,7 @@ const  App = () => {
   const [inputEstado,setInputEstado] = useState<string>("")
   const [inputGenero,setInputGenero] = useState<string>("")
   const [characters,setCharacters] = useState<Character[]>([]);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
   
     useEffect(() => {
     if (!search) return
@@ -69,8 +70,13 @@ const  App = () => {
 
  return (
     <div className='mainContainer'>
-      <div className='buscador'>
-        <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+      
+      <form className='buscador' onSubmit={(e) => {
+            e.preventDefault();
+            
+            setSearch(inputName + inputEspecie + inputEstado + inputGenero);
+          }}>
+        <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value) }/>
       
         <label> Especie: </label> <input type="text" value={inputEspecie} onChange={(e) => setInputEspecie(e.target.value)}/>
       
@@ -78,12 +84,26 @@ const  App = () => {
 
         <label> Genero: </label> <input type="text" value={inputGenero} onChange={(e) => setInputGenero(e.target.value)}/>
 
-      </div>
+        <button className="botoncito"></button>
+        
+      </form>
       <button onClick={() => setSearch(inputName + inputEspecie + inputEstado + inputGenero)}> Buscar </button>
+      <div className="characterContainer">
+  {
+  selectedCharacter
+    ? <CharcacterDetalladito id={selectedCharacter.id} />
+    : characters.map((e) => (
+  <CharacterById
+    key={e.id}
+    characterin={e}
+    onSelect={() => setSelectedCharacter(e)}
+  />
+))
 
-      <div className='characterContainer'>
-        {characters.map((e) => <CharacterById key={e.id} characterin={e}/>)}
-      </div>
+}
+
+</div>
+
 
     </div>
   )

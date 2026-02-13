@@ -22,3 +22,9 @@
   gap: 10px;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+.botoncito{
+  background-color: #143149;
+  border-color: #143149;
+  width: 0px;
+  height: 0px;
+}

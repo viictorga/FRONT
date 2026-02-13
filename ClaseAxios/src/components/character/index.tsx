@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { api } from "../../api/api"
 import "./style.css"
 import type { Character } from "../../types";
+import { CharcacterDetalladito } from "../characterDetallado";
 
 
-export const CharacterById = (params: {id?: string, characterin?: Character}) =>{
+export const CharacterById = (params: {id?: string, characterin?: Character, onSelect?: () => void}) =>{
     const id = params.id;
     const paramsCharacter = params.characterin;
 
@@ -29,6 +30,9 @@ export const CharacterById = (params: {id?: string, characterin?: Character}) =>
                     <p> Estado: {character?.status}</p>
                     <p> Especie: {character?.species}</p>
                     <p> Genero: {character?.gender}</p>
+                    <p>
+                        <button className="botonVer" onClick={()=> CharcacterDetalladito({id: character?.id})} >Ver a {character?.name}</button>
+                    </p>
                 </div>
             
             </div> : <p>Loading...</p>}
