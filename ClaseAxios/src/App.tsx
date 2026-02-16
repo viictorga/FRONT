@@ -17,6 +17,8 @@ const  App = () => {
   const [inputGenero,setInputGenero] = useState<string>("")
   const [characters,setCharacters] = useState<Character[]>([]);
   const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [miError, setError] = useState<string>("");
   
     useEffect(() => {
     if (!search) return
@@ -61,9 +63,13 @@ const  App = () => {
     api.get(`${url}`)
       .then(res => {
         setCharacters(res.data.results)
+        setError("")
       })
-      .catch(() => {
-        setCharacters([])
+      .catch((e) => {
+        setError(`Error cargando los datos: ${e.message ? e.message: e}`)
+      })
+      .finally(()=>{
+        setLoading(false);
       })
 
   }, [search])
@@ -88,10 +94,11 @@ const  App = () => {
         
       </form>
       <button onClick={() => setSearch(inputName + inputEspecie + inputEstado + inputGenero)}> Buscar </button>
+      {search && loading && <h1>Loading...</h1>}
+      {miError && <h2>{miError}</h2>}
       <div className="characterContainer">
   {
-  selectedCharacter
-    ? <CharcacterDetalladito id={selectedCharacter.id} />
+  selectedCharacter ? <CharcacterDetalladito id={selectedCharacter.id} />
     : characters.map((e) => (
   <CharacterById
     key={e.id}
