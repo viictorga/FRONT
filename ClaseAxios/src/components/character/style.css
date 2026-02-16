@@ -10,6 +10,9 @@
     flex-wrap: wrap;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+.unPersonaje{
+  cursor: pointer;
+}
 
 .unPersonaje img{
     
@@ -52,7 +55,7 @@
  
 }
 .Nombre{
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
   color: #00ff88;
   text-shadow: 0 0 7px #00ff88;
   font-size: 25px;

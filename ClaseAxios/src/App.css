@@ -30,6 +30,21 @@
 .characterContainer{
   background-color: #192835;
 }
+.botonBorrarFiltros{
+  width: 120px;  
+  height: 35px;
+  margin: 10px;
+  background-color: #FABADA;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.botonBorrarFiltros:hover{
+   transform: translateY(-3px);
+  box-shadow: 0 0 15px #FABADA;
+}
 .botones > button{
   width: 90px;  
   height: 35px;
@@ -51,8 +66,17 @@
 }
 
 .paginas{
-  margin: 10px;
-  color:#FABADA
+  margin: 10px 0px 22px 0px;
+  color:#FABADA;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.mainContainer > label{
+
+margin: 10px 0px 22px 0px;
+  color:#FABADA;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display:flex;
+  justify-content: flex-start;
 }
 .botones{
   width: 95%;
