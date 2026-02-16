@@ -4,7 +4,6 @@ import { api } from './api/api'
 import { CharacterById } from './components/character'
 import type { Character } from './types'
 
-import { CharcacterDetalladito } from './components/characterDetallado'
 
 
 
@@ -16,7 +15,7 @@ const  App = () => {
   const [inputEstado,setInputEstado] = useState<string>("")
   const [inputGenero,setInputGenero] = useState<string>("")
   const [characters,setCharacters] = useState<Character[]>([]);
-  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+  const [pagina, setPagina] = useState<number>(2);
   const [loading, setLoading] = useState<boolean>(true);
   const [miError, setError] = useState<string>("");
   
@@ -58,8 +57,14 @@ const  App = () => {
         } 
       }
 
-      
-      console.log(url);
+      if(primeraaa){
+        url = url + "page=" + pagina
+      }
+      else{
+        url = url + "&page=" + pagina
+
+      }
+        //aqui va la logica para meterle cada pagina url = url +
     api.get(`${url}`)
       .then(res => {
         setCharacters(res.data.results)
@@ -72,17 +77,26 @@ const  App = () => {
         setLoading(false);
       })
 
-  }, [search])
+  }, [search, pagina])
 
  return (
     <div className='mainContainer'>
+      <h1 className="tituloPrincipal">
+        Rick & Morty Buscador en Multiversos
+      </h1>
       
       <form className='buscador' onSubmit={(e) => {
             e.preventDefault();
             
             setSearch(inputName + inputEspecie + inputEstado + inputGenero);
           }}>
-        <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value) }/>
+            
+
+        <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => {setInputName(e.target.value)} } onKeyDown={(e)=>{
+          if(e.key == "Enter"){
+            setSearch
+          }
+        }} />
       
         <label> Especie: </label> <input type="text" value={inputEspecie} onChange={(e) => setInputEspecie(e.target.value)}/>
       
@@ -93,26 +107,23 @@ const  App = () => {
         <button className="botoncito"></button>
         
       </form>
-      <button onClick={() => setSearch(inputName + inputEspecie + inputEstado + inputGenero)}> Buscar </button>
+      <div className="botones">
+        <button className="paginaMenos"onClick={()=> setPagina(pagina-1)}> ← </button>
+        <button  onClick={() => setSearch(inputName + inputEspecie + inputEstado + inputGenero)}> Buscar </button>
+        <button className="paginaMas" onClick={()=> setPagina(pagina+1)}> → </button>
+      </div>
+      
+      <label className="paginas"> Pagina: {pagina}</label>
+
       {search && loading && <h1>Loading...</h1>}
       {miError && <h2>{miError}</h2>}
       <div className="characterContainer">
-  {
-  selectedCharacter ? <CharcacterDetalladito id={selectedCharacter.id} />
-    : characters.map((e) => (
-  <CharacterById
-    key={e.id}
-    characterin={e}
-    onSelect={() => setSelectedCharacter(e)}
-  />
-))
+          {characters.map((e) => (<CharacterById key={e.id} characterin={e} />))}
 
-}
-
-</div>
+      </div>
 
 
-    </div>
+  </div>
   )
 }
 
