@@ -1,0 +1,96 @@
+.contenedorPrincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background: radial-gradient(
+    circle at center,
+    #192835 0%,
+    #0f1c26 60%,
+    #0b141c 100%
+  );
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Tarjeta */
+.characterDetail {
+  width: 90%;
+  max-width: 700px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+  padding: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #143149,
+    #102738
+  );
+
+  border-radius: 25px;
+  border: 2px solid rgba(250,186,218,0.3);
+
+  box-shadow: 0 0 30px rgba(250,186,218,0.15);
+}
+
+/* Imagen */
+.characterDetail img {
+  width: 200px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+
+  border: 3px solid rgba(250,186,218,0.4);
+}
+
+/* Nombre */
+.characterDetail h1 {
+  font-size: 32px;
+  color: #FABADA;
+  text-shadow: 0 0 20px rgba(250,186,218,0.6);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* Datos */
+.characterDetail p {
+  width: 100%;
+  padding: 8px 12px;
+
+  background-color: #192835;
+  border-radius: 12px;
+
+  color: white;
+  border: 1px solid rgba(250,186,218,0.2);
+
+  transition: all 0.3s ease;
+}
+
+.characterDetail p:hover {
+  border-color: #FABADA;
+  box-shadow: 0 0 12px rgba(250,186,218,0.5);
+}
+
+/* Botón volver */
+.characterDetail button {
+  margin-top: 20px;
+  width: 140px;
+  height: 40px;
+
+  background-color: #FABADA;
+  border: none;
+  border-radius: 12px;
+
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.characterDetail button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #FABADA;
+}

@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { api } from "../../api/api"
 import "./character.css"
 import type { Character } from "../../types";
+import { useRouter } from "next/navigation";
 
 
 export const CharacterById = (params: {id?: string, characterin?: Character, onSelect?: () => void}) =>{
     const id = params.id;
     const paramsCharacter = params.characterin;
+
+    const router = useRouter();
 
 
     const [character, setCharacter] = useState<Character | null>(paramsCharacter ? paramsCharacter : null);
@@ -30,15 +33,8 @@ export const CharacterById = (params: {id?: string, characterin?: Character, onS
                     <p> Estado: {character?.status}</p>
                     <p> Especie: {character?.species}</p>
                     <p> Genero: {character?.gender}</p>
-                    {showMore && (
-                        <>
-                            <p>Fecha Creacion: {character.created}</p>
-                            <p>Tipo: {character.type}</p>
-                            <p>Localizacion: {character.location.name}</p>
-                        </>
-                    )}
                     <p>
-                        <button className="botonVer" onClick={()=> setShowMore(!showMore)} >Ver a {character?.name}</button>
+                        <button className="botonVer" onClick={()=> router.push(`/characterAmpliado?id=${character.id}`)} >Ver a {character?.name}</button>
                     </p>
                     </div>
                 </div>
