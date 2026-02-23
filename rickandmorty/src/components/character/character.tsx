@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../../api/api"
+import { api } from "../../lib/api/api"
 import "./character.css"
 import type { Character } from "../../types";
 import { useRouter } from "next/navigation";

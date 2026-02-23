@@ -4,7 +4,7 @@ import "./globals.css"
 import "./page.css"
 import { Character } from "@/types";
 import { CharacterById } from "@/components/character/character";
-import { api } from "@/api/api";
+import { api } from "@/lib/api/api";
 
 
 const Home =() =>{
