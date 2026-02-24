@@ -1,30 +1,40 @@
 "use client"
-import router from "next/router"
 import { useParams } from "next/navigation"
-import { api } from "@/lib/api/api"
 import { Character } from "@/types"
 import { useState } from "react"
 import { useEffect } from "react"
 import "./page.css"
 import { getCharacterById } from "@/lib/api/character"
+import { useRouter } from "next/navigation"
 
 const PersonajitoAmpliado = () =>{
 
+    const router = useRouter();
     const {id} = useParams()
+    let idBueno = Number(id);
     const [character, setCharacter] = useState<Character | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [miError, setError] = useState<string>("");
+
         
           useEffect(() => {
-            getCharacterById(Number(id)).then((res)=>{
+            getCharacterById(Number(idBueno)).then((res)=>{
                 setCharacter(res.data)
+                setError("")
+            }).catch((e)=>{
+              setError(`Error cargando los datos: ${e.message ? e.message: e}`)
+
+            }).finally(()=>{
+              setLoading(false);
             })
-          }, [id]);
-        
+          }, [idBueno]);
+          
           
     return (
         <>
         
             <div className="contenedorPrincipal">
-              {character ? (
+              {!miError && !loading &&character && (
                 <div className="characterDetail">
                   <img src={character.image}  />
         
@@ -44,15 +54,17 @@ const PersonajitoAmpliado = () =>{
         
                 <p>URL: {character.url}</p>
                 <p>Creado: {character.created}</p>
-        
+                <button onClick={()=> router.push(`/characterAmpliado/${idBueno +1}`)}>Ir al personaje {idBueno + 1}</button>
+                <button onClick={()=> router.push(`/characterAmpliado/${idBueno -1}`)}>Ir al personaje {idBueno - 1}</button>
         
                  
         
                   <button onClick={() => router.back()}>Volver</button>
                 </div>
-              ) : (
-                <h1>No se ha encontrado el personaje</h1>
               )}
+
+              { loading && <h1>Loading...</h1>}
+              {miError && <h2>{miError}</h2>}
             </div>
 
 

@@ -34,7 +34,7 @@ export const CharacterById = (params: {id?: string, characterin?: Character, onS
                     <p> Especie: {character?.species}</p>
                     <p> Genero: {character?.gender}</p>
                     <p>
-                        <button className="botonVer" onClick={()=> router.push(`/characterAmpliado?id=${character.id}`)} >Ver a {character?.name}</button>
+                        <button className="botonVer" onClick={()=> router.push(`/characterAmpliado/${character.id}`)} >Ver a {character?.name}</button>
                     </p>
                     </div>
                 </div>
