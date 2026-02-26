@@ -1,10 +1,50 @@
-.contenedorPrincipal{
-    padding: 20px;
+body{
+    background-image: url("/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.contenedorPrincipal{
+    padding:  10px 20px 20px 20px;
+    
+}
+.lupa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 10px;
+    border: 2px solid black;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.lupa:hover{
+    transform: scale(1.02);
+    box-shadow: 3px 3px 3px 3px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}
+h2{
+    display: flex;
+    justify-content: center;
+}
+.divisor{
+    
+   margin: 30px;
+    padding: 15px;
+}
+
 
 .contenedorLogosGeneraciones{
     display: flex;
-    gap: 5px;
+    gap: 7px;
     flex-wrap: wrap;
     margin-top: 20px;
 }
@@ -18,7 +58,7 @@
 }
 
 .cardRegion:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .imagenesGeneraciones{

@@ -1,5 +1,5 @@
 "use client";
-
+import "./globals.css";
 import "./page.css";
 import Link from "next/link";
 
@@ -15,10 +15,13 @@ const regiones = [
   { nombre: "Paldea", ruta: "Paldea", imagen: "/paldea.png" },
 ];
 
-export default function App() {
+
+
+
+const App = () =>{
   return (
     <div className="contenedorPrincipal">
-      <h1>Bienvenido al archivo Pokemon</h1>
+      <h1>Pokemon</h1>
       <h2>Estas son las regiones que puedes seleccionar:</h2>
 
       <div className="contenedorLogosGeneraciones">
@@ -35,6 +38,18 @@ export default function App() {
           </div>
         ))}
       </div>
+      <div className="divisor">
+        <label >-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
+      </div>
+      <div >
+        <h2>Este es la pokedex global: </h2>
+        <Link className="lupa" href="/pokedex"> <img src="lupa.png"></img></Link>
+      </div>
+      <div className="divisor">
+        <label >-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
+      </div>
+
     </div>
   );
 }
+export default App;
