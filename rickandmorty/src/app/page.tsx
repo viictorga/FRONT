@@ -18,6 +18,7 @@ const Home =() =>{
   const [loading, setLoading] = useState<boolean>(true);
   const [miError, setError] = useState<string>("");
   const [totalResultados, setTotalResultados] = useState<number>(0);
+  const [aux, setAux] = useState<number>(0);
 
 
       const borrarFiltros = () => {

@@ -3,11 +3,16 @@ import { api } from "../../lib/api/api"
 import "./character.css"
 import type { Character } from "../../types";
 import { useRouter } from "next/navigation";
+type Props ={
+    aux?: number;
+    setAux?: React.Dispatch<React.SetStateAction<number>>;
+    id?: string;
+    characterin?: Character
+}
 
-
-export const CharacterById = (params: {id?: string, characterin?: Character, onSelect?: () => void}) =>{
-    const id = params.id;
-    const paramsCharacter = params.characterin;
+export const CharacterById = ({aux, setAux, id, characterin}:Props) =>{
+    const id2 = id
+    const paramsCharacter =characterin;
 
     const router = useRouter();
 
@@ -20,7 +25,7 @@ export const CharacterById = (params: {id?: string, characterin?: Character, onS
         setCharacter(res.data)
        })
 
-    }, [id])
+    }, [id2])
 
     return (
         <>

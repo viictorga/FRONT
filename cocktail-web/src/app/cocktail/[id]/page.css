@@ -46,7 +46,6 @@
   transform: scale(1.05);
 }
 
-/* Descripción */
 .containerDetalle p {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
@@ -55,6 +54,37 @@
   line-height: 1.6;
   font-size: 1.1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  margin: 15px;
+}
+.linkVideo{
+  border-radius: 20px;
+}
+.linkVideo > p{
+  background-color: #b0ce2a;
+  color: black;
+  cursor: pointer;
+
+
+}
+.linkVideo:hover{
+transform: scale(1.05);
+}
+button{
+  width: 90px;  
+  height: 35px;
+  margin: 10px;
+  background-color: #FABADA;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: black
+}
+button:hover{
+transform: scale(1.05);
+box-shadow: 3px 5px 2px #b0ce2a;;
+
 }
 
 /* Loading */
