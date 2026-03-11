@@ -88,7 +88,7 @@ const Home =() =>{
       {search && loading && <h1>Loading...</h1>}
       {miError && <h2>{miError}</h2>}
       <div className="characterContainer">
-          {cocktails ? <> {cocktails.map((e) => (<CocktailById key={e.idDrink} cocktelin={e} />))} </>: <div>No se han encontrado </div>}
+          {cocktails ? <> {cocktails.map((e) => (<CocktailById key={e.idDrink} cocktelin={e} />))} </>: <div>No se ha ecnotrado ningun cocktail con este nombre </div>}
 
       </div>
 

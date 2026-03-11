@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import "./globals.css";
 import "./page.css";
 import Link from "next/link";
@@ -19,9 +20,15 @@ const regiones = [
 
 
 const App = () =>{
+  const router = useRouter();
   return (
     <div className="contenedorPrincipal">
       <h1>Pokemon</h1>
+      <div className="botonSabela">
+        <button onClick={(()=>{
+          router.push("/pokemon/jolteon")
+        })}>El pokemon fav de sabela :)</button>
+      </div>
       <h2>Estas son las regiones que puedes seleccionar:</h2>
 
       <div className="contenedorLogosGeneraciones">
@@ -48,6 +55,7 @@ const App = () =>{
       <div className="divisor">
         <label >-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</label>
       </div>
+      
 
     </div>
   );

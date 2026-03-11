@@ -10,6 +10,27 @@ body{
     padding:  10px 20px 20px 20px;
     
 }
+.botonSabela{
+    display:flex;
+    justify-content: flex-end;
+    
+}
+.botonSabela > button{
+     background-color: white;
+  color: #000000;
+  border: 2px solid #ffcc00;
+  border-radius: 25px;
+    
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+ 
+  flex-shrink: 0;
+}
+.botonSabela > button:hover{
+    transform: scale(1.02);
+    box-shadow: 3px 3px 3px #ffcc00;
+}
 .lupa{
     display: flex;
     justify-content: center;
