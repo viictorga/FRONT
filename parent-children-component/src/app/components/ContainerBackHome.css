@@ -1,0 +1,23 @@
+.container {
+position: absolute;
+background-color: rgba(0,0,0,0.8);
+width: 100vw;
+height: 100vh;
+left: 0px;
+top: 0px;
+display:flex;
+align-items: center;
+justify-content: center;
+}
+
+button{
+    align-self: flex-start
+}
+.innerContainer{
+    background-color: white;
+    width :40%;
+    min-height:280px;
+    border-radius: 15px;
+    padding: 25px;
+    pointer-events:none;
+}
