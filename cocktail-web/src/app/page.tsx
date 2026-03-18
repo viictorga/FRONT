@@ -5,6 +5,8 @@ import "./page.css"
 import { Cocktail } from "@/types";
 import { CocktailById } from "@/components/cocktail/page";
 import { api } from "@/lib/api/api";
+import { useLista } from "@/context/ContextList";
+import { useRouter } from "next/navigation";
 
 
 const Home =() =>{
@@ -18,8 +20,8 @@ const Home =() =>{
   const [loading, setLoading] = useState<boolean>(true);
   const [miError, setError] = useState<string>("");
   const [totalResultados, setTotalResultados] = useState<number>(0);
-
-
+  const router = useRouter();
+  const {lista} = useLista();
       const borrarFiltros = () => {
       setInputName("");
       setInputEspecie("");
@@ -79,8 +81,8 @@ const Home =() =>{
       </form>
       <div className="botones">
         
-       
         <button  onClick={() => setSearch(inputName)}> Buscar </button>
+        <button  onClick={() => router.push("/lista")}> Ver lista </button>
        
       </div>
       
