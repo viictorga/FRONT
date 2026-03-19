@@ -26,8 +26,8 @@ const App = () =>{
       <h1>Pokemon</h1>
       <div className="botonSabela">
         <button onClick={(()=>{
-          router.push("/pokemon/jolteon")
-        })}>El pokemon fav de sabela :)</button>
+          router.push("/pokemon/psyduck")
+        })}>El pokemon fav de angela :)</button>
       </div>
       <h2>Estas son las regiones que puedes seleccionar:</h2>
 
