@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ListaProvider } from "@/context/ContextList";
+import Buscador  from "@/components/buscador";
+import { SearchProvider } from "@/context/searchContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,14 +22,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ListaProvider>{children}</ListaProvider>
-        
+        <ListaProvider>
+          <SearchProvider>
+
+          
+          <Buscador />
+          {children}
+          </SearchProvider>
+        </ListaProvider>
       </body>
     </html>
   );

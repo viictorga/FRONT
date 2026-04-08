@@ -7,10 +7,13 @@ import { CocktailById } from "@/components/cocktail/page";
 import { api } from "@/lib/api/api";
 import { useLista } from "@/context/ContextList";
 import { useRouter } from "next/navigation";
+import { useSearch } from "@/context/searchContext"
+
+
 
 
 const Home =() =>{
-  const [search,setSearch] = useState<string>("");
+const { search, setSearch } = useSearch()
   const [inputName,setInputName] = useState<string>("")
   const [inputEspecie,setInputEspecie] = useState<string>("")
   const [inputEstado,setInputEstado] = useState<string>("")
@@ -39,12 +42,13 @@ const Home =() =>{
       let url = "/search.php?s="
       
 
-      if(inputName)  {
-          url = url + inputName;
+      if(search)  {
+          url = url + search;
       }
     api.get(`${url}`)
       .then(res => {
         setCharacters(res.data.drinks)
+        console.log(cocktails)
         setError("")
       })
       .catch((e) => {
@@ -58,41 +62,19 @@ const Home =() =>{
 
  return (
     <div className='mainContainer'>
-      <h1 className="tituloPrincipal">
-        Pagina de Cocktails
-      </h1>
-      <form className='buscador' onSubmit={(e) => {
-            e.preventDefault();
-            
-            setSearch(inputName );
-          }}>
-            
-
-        <label> Nombre: </label> <input type="text" value={inputName} onChange={(e) => {setInputName(e.target.value)} } onKeyDown={(e)=>{
-          if(e.key == "Enter"){
-            setSearch
-          }
-        }} />
-      
-        
-        { search &&<button className="botonBorrarFiltros" onClick={borrarFiltros}>Borrar Filtros</button>
-}
-        
-      </form>
-      <div className="botones">
-        
-        <button  onClick={() => setSearch(inputName)}> Buscar </button>
-        <button  onClick={() => router.push("/lista")}> Ver lista </button>
-       
-      </div>
       
       
-      {search && loading && <h1>Loading...</h1>}
-      {miError && <h2>{miError}</h2>}
+      
       <div className="characterContainer">
-          {cocktails ? <> {cocktails.map((e) => (<CocktailById key={e.idDrink} cocktelin={e} />))} </>: <div>No se ha ecnotrado ningun cocktail con este nombre </div>}
-
-      </div>
+  {cocktails.length > 0 ? (
+    cocktails.map((e) => (
+      
+      <CocktailById key={e.idDrink} cocktelin={e} />
+    ))
+  ) : (
+    <div>No se ha encontrado ningún cocktail</div>
+  )}
+</div>
 
 
   </div>

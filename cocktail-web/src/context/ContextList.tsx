@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 
 
@@ -16,6 +16,19 @@ const ListaContext = createContext<ListaContextType | null>(null);
 
 export const ListaProvider = ({children} : {children: ReactNode}) =>{
     const [lista, setLista] = useState<string[]>([]);
+
+    useEffect(() => {
+    const stored = localStorage.getItem("listilla")
+
+    if (stored) {
+        const arrayStored = stored ? stored?.split(',') : [];
+        setLista(arrayStored)
+    }
+}, [])
+    useEffect(()=>{
+        localStorage.setItem("listilla", String(lista))
+    }, [lista])
+
     const addLista = (item: string) =>{
         setLista([...lista, item]);
     }

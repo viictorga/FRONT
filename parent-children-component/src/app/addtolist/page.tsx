@@ -5,7 +5,7 @@ import { useState } from "react"
 
 
 
-export const AddtoList = () =>{
+ const AddtoList = () =>{
     const [input, setInput] = useState("")
     const {addLista} = useLista();
     return(
@@ -23,3 +23,4 @@ export const AddtoList = () =>{
         </div>
     )
 }
+export default AddtoList;   

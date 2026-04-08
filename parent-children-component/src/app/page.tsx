@@ -17,7 +17,7 @@ const [modal, setModal] = useState<boolean>(false)
         <p key={e}>{e}</p>
       ))}
       <button onClick={(()=> {
-        
+        router.push(`/addtolist`)
       })}>Comprar</button>
       <button onClick={(()=> {
         setModal(true)

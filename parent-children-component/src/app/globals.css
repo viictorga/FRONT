@@ -2,6 +2,12 @@
 
 body{
   min-height: 100vh;
-  width: 100vh;
+  width: 100%;
   margin: 0;
+}
+.cuadrado{
+  width: 100%;
+  height: 100%;
+  background-color: #FABADA;
+  padding: 50px;
 }

@@ -21,7 +21,7 @@ export const CocktailById = (params: {id?: string, cocktelin?: Cocktail, onSelec
         getCocktailById(Number(id)).then((res)=>{
             setCocktail(res.data.drinks[0])
         })
-    })
+    },[])
 
 
 
