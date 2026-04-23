@@ -1,0 +1,25 @@
+
+
+
+.ContainerCharacterChulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    width: 100%;
+    gap:calc() 3px;
+}
+.ContainerCharacterChulo h1{
+    align-self: flex-end;
+}
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.infoContainer h1{
+    margin-bottom: auto;
+}

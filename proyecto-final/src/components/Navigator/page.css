@@ -1,0 +1,27 @@
+.navigatorContainer{
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #FFFF;
+    justify-content: center;
+    background-color: black;
+    filter: brightness(10px);
+    padding: 5px;
+    gap: 4px;
+    overflow: hidden;
+}
+.navigatorContainer p {
+    color: white;
+
+}
+.NavigateLink{
+    padding: 10px;
+    background-color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform(0.5s) ease-out;
+}
+.NavigateLink:hover{
+    transform: scale(1.05);
+    
+}
