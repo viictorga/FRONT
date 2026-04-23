@@ -17,7 +17,7 @@ const PageCharacters = () => {
 
     const getCharacters = async (page: number) =>{
         try {
-            api.get("/character").then((e)=>{
+            api.get(`/character?page=${page}`).then((e)=>{
                 const {data}: {data: ResultCharacters} = e;
                 setResultCharacters(data);
                 
@@ -34,13 +34,14 @@ const PageCharacters = () => {
 
     useEffect(()=>{
         getCharacters(page)
-    })
+        console.log(page)
+    }, [page])
     return (
         
         <div>
             <h1>Personajitos</h1>
             {resultCharacters && resultCharacters.results.map((e)=>
-                (<CharacterChulo key={e.id} character={e}></CharacterChulo>)
+                (<CharacterChulo key={e.id} props={{character:e}}></CharacterChulo>)
             )}
             <Paginador 
                 next={!!resultCharacters?.info.next}

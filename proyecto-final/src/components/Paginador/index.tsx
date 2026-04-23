@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import "./page.css"
 
 
 type Props = {
@@ -19,14 +20,14 @@ const Paginador = ({next,prev,page,setPage}: {
     const [preClass, setPreClass] = useState("arrow")
     const [postClass, setpostClass] = useState("arrow")
     return(
-        <div>
+        <div className="PaginadorContainer">
             <div className={prev ? "arrow": "arrow disabled"} onClick={()=>{
                 setPage(page - 1)
-            }}></div>
+            }}><p>{"<"}</p></div>
             <h1>{page}</h1>
             <div className={next ? "arrow": "arrow disabled"} onClick={()=>{
                 setPage(page + 1)
-            }}></div>
+            }}><p>{">"}</p></div>
         </div>
     )
 }

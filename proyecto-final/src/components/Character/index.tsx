@@ -1,14 +1,39 @@
 import { Character } from "@/types";
 import "./page.css"
+import { GetOneCharacter } from "@/api/getOneCharacter";
+import { useEffect, useState } from "react";
 
-const CharacterChulo = ({character}:{character : Character}) =>{
+type Props = {
+    character?: Character,
+    link?: string
+}
+
+const CharacterChulo = ({props}:{props: Props}) =>{
+    const [personaje, setPersonaje] = useState<Character | null>(null)
+    
+    
+    useEffect(()=>{
+        
+        if(props.character){
+            setPersonaje(props.character)
+           
+        }
+        else if(props.link){
+            GetOneCharacter(props.link!).then((res)=>{
+                setPersonaje(res.data)
+            })
+        }
+    })
+    if(!personaje){
+        return <p>Cargando...</p>
+    }
     return(
         <div className="ContainerCharacterChulo">
-            <img src={character.image}></img>
+            <img src={personaje.image}></img>
             <div className="infoContainer">
-                <h1>{character.name}</h1>
-                <p>{character.gender}</p>
-                <p>{character.location.name}</p>
+                <h1>{personaje!.name}</h1>
+                <p>{personaje!.gender}</p>
+                <p>{personaje!.location.name}</p>
 
             </div>
             
