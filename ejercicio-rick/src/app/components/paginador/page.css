@@ -1,0 +1,26 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.izq button{
+    transition: transform 1s;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    
+}
+.izq button:hover{
+    transform: scale(1.2);
+}
+.der button{
+    transition: transform 1s;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+}
+.der button:hover{
+    transform: scale(1.2);
+}

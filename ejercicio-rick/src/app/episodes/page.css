@@ -1,0 +1,18 @@
+.general1{
+    padding: 20px;
+    display: flex;
+    flex-direction: column ;
+}
+
+.general1 h1{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.episodios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+   border-radius: 10% 30% 50% 70%;  
+}

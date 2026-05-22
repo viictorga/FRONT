@@ -1,0 +1,26 @@
+.generalBarra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+}
+.busquedaBarra{
+    display: flex;
+    gap: 3px;
+}
+.botonesBarra{
+ padding: 15px;
+  display: flex;
+    gap: 5px; 
+}
+.generalBarra button{
+    transition: transform 1s;
+    cursor: pointer;
+    border-radius: 2px;
+    border-color: red;
+}
+
+.generalBarra button:hover{
+ transform: scale(1.1)
+}

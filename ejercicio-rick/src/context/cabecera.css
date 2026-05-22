@@ -1,0 +1,13 @@
+
+.miMarco{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    justify-content:space-between ;
+    align-items:center;
+}
+.miMarco button{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
