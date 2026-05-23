@@ -1,0 +1,14 @@
+.cabeceraPrincipal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: grey;
+    margin-bottom: 30px;
+    height: 70px;
+}
+.cabeceraPrincipal > button{
+    height: 40px;
+    width: 60px;
+    margin: 5px;
+}   

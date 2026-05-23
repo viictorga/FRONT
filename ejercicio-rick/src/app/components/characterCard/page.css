@@ -7,16 +7,13 @@
     margin: 20px;
     border-radius: 56px;
     border: 5px solid ;
-    border-color: red;
+    border-color: black;
     background-color: grey;
 }
-.divisor{
-    
 
-}
 .imagen img{
     border-radius: 41%;
-    border: 2px solid green;
+    border: 2px solid #fabada;
   
 
 }

@@ -18,7 +18,7 @@
     transition: transform 1s;
     cursor: pointer;
     border-radius: 2px;
-    border-color: red;
+    border-color: BLACK;
 }
 
 .generalBarra button:hover{
