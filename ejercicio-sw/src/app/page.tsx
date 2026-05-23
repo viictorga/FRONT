@@ -11,7 +11,9 @@ const Home = () =>{
         <button onClick={()=> router.push("/naves")}> Naves</button>
         <button onClick={()=> router.push("/planetas")}> Planetas</button>
       </div>
-      
+      <div className="foto">
+        <img src={'starwars.png'}></img>
+      </div>
     </div>
   );
 }

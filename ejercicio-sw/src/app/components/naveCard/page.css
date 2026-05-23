@@ -1,13 +1,14 @@
-.principalPlaneta{
+
+.principalNave{
     border: 2px solid black;
     border-radius: 10%;
     background-color: #fabada;
     transition: transform 0.5s;
 }
-.principalPlaneta:hover{
+.principalNave:hover{
     transform: scale(1.1);
 }
-.principalPlaneta h1 {
-    color: green;
+.principalNave h1 {
+    color: blue;
 }
 

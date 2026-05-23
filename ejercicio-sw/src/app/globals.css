@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.botonesPrincipal{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.foto{
+  display:flex;
+  justify-content: center;
+ 
+}
